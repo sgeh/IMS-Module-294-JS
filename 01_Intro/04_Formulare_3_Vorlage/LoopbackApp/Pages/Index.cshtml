@@ -1,0 +1,28 @@
+﻿@page
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>Loopback Server</title>
+</head>
+<body>
+    <header><h1>Loopback Server</h1></header>
+    <main>
+        @if (Request.HasFormContentType)
+        {
+            <header><h2>Data Recieved</h2></header>
+            <ul>
+                @foreach (var formPair in Request.Form)
+                {
+                    <li><b>@formPair.Key</b>: @formPair.Value</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <b>No Data Given</b>
+        }
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      form > :not(:first-child) {
+        margin-top: 20px;
+      }
+      
+      fieldset > div:not(:first-of-type) {
+        margin-top: 20px;
+      }
+    </style>
+</head>
+<body>
+  <form>
+    <fieldset>
+      <legend>Basisangaben</legend>
+
+      <div>Spitzname:</div>
+      <input type="text" name="nickname" autofocus>
+
+      <div>Nachname:</div>
+      <input type="text" name="lastname" placeholder="Nachname">
+      
+      <div>Vorname:</div>
+      <input type="text" name="firstname" placeholder="Vorname">
+
+      <div>Geburtsdatum:</div>
+      <input type="date" name="birthday">
+
+      <div>Geschlecht:</div>
+      <span><input type="radio" name="gender" value="M">M</span>
+      <span><input type="radio" name="gender" value="W">W</span>
+      <span><input type="radio" name="gender" value="none">kein Angabe</span>
+    </fieldset>
+    
+    <fieldset>
+      <div>Hobbies:</div>
+      <select name="hobbies" multiple>
+        <option value="sports">Sport</option>
+        <option value="gaming">Gaming</option>
+        <option value="read">Lesen</option>
+      </select>
+
+      <div>Anmerkungen:</div>
+      <textarea rows="4"></textarea>
+
+      <div>Bild hochladen</div>
+      <input type="file">
+    </fieldset>
+
+    <div>
+      <button>Absenden</button>
+    </div>
+  </form>
+</body>
+</html>

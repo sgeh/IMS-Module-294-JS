@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      form > :not(:first-child) {
+        margin-top: 20px;
+      }
+      
+      fieldset > label {
+        display: block;
+      }
+
+      fieldset > label:not(:first-of-type) {
+        margin-top: 20px;
+      }
+    </style>
+</head>
+<body>
+  <form action="http://localhost:4200" method="post">
+    <fieldset>
+      <legend>Basisangaben</legend>
+
+      <label title="Spitzname">Spitzname:<br>
+        <input type="text" name="nickname" autofocus>
+      </label>
+
+      <label title="Nachname">Nachname:<br>
+        <input type="text" name="lastname" placeholder="Nachname">
+      </label>
+
+      <label title="Vorname">Vorname:<br>
+        <input type="text" name="firstname" placeholder="Vorname">
+      </label>
+
+      <label title="Geburtsdatum">Geburtsdatum:<br>
+        <input type="date" name="birthday">
+      </label>
+
+      <label title="Geschlecht">Geschlecht:<br>
+        <span><input type="radio" name="gender" value="M">M</span>
+        <span><input type="radio" name="gender" value="W">W</span>
+        <span><input type="radio" name="gender" value="none">kein Angabe</span>
+      </label>
+    </fieldset>
+    
+    <fieldset>
+      <label title="Hobbies">Hobbies:<br>
+        <select name="hobbies" multiple>
+          <option value="sports">Sport</option>
+          <option value="gaming">Gaming</option>
+          <option value="read">Lesen</option>
+        </select>
+      </label>
+
+      <label title="Anmerkungen">Anmerkungen:<br>
+        <textarea rows="4"></textarea>
+      </label>
+
+      <label title="Bild hochladen">Bild hochladen<br>
+        <input type="file">
+      </label>
+    </fieldset>
+
+    <div>
+      <button>Absenden</button>
+    </div>
+  </form>
+</body>
+</html>
