@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="number" id="left"> + <input type="number" id="right"> = <input type="number" id="output" readonly disabled> <input type="button" onclick="calculate()" value="Calculate">
+    </div>
+    <h1 id="heading1"></h1>
+
+<script defer>
+function calculate() {
+    const leftInput = document.querySelector("#left");
+    const rightInput = document.querySelector("#right");
+    const output = document.querySelector("#output");
+
+    const result = leftInput.valueAsNumber + rightInput.valueAsNumber;
+    output.value = result;
+}
+
+</script>
+
+</body>
+</html>
