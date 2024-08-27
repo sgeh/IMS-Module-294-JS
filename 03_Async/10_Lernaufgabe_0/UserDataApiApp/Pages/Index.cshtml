@@ -1,0 +1,33 @@
+﻿@page
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title>User Data API Server</title>
+    </head>
+    <body>
+        <header><h1>API Definition</h1></header>
+        <main>
+            To use the User Data API, call <a href="/api/user" target="_blank">/api/user</a> with method GET.
+            This API will return the a sample set of users in the following format: 
+            <code>
+                <pre>
+[
+  {
+    "id": number,
+    "lastName": string,
+    "firstName": string,
+    "location": string,
+    "birthday": string,
+    "friends": [
+      number/s
+    ]
+  },
+  ...more object/s...
+]
+                </pre>
+            </code>
+        </main>
+    </body>
+</html>
+

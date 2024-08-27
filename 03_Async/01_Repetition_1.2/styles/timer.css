@@ -1,0 +1,9 @@
+.alarm {
+    background-color: lightcoral;
+    border: 1px solid red;
+    color: red;
+    display: none;
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+}
