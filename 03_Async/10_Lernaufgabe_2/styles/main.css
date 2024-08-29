@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+.user-grid {
+    margin: 2rem;
+    display: grid;
+
+    /* SHOULD Requirement */
+    grid-template-columns: repeat(auto-fill, 250px);
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+.user-grid > section {
+    border: 1px solid blue;
+    border-radius: 10px;
+}
+
+.user-grid > section > header {
+    background-color: lightgray;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid blue;
+    padding: 1.3rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.user-grid > section > div {
+    padding: 1.3rem;
+}
+
