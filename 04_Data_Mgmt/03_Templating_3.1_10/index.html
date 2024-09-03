@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX + DOM</title>
+    <script src="./scripts/user-api.js" defer></script>
+    <link rel="stylesheet" href="./styles/main.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+<body>
+    <script id="card-template" type="text/x-handlebars-template">
+        {{#each users}}
+            <section>
+                <header>
+                    <h3>{{firstName}} {{lastName}}</h3>
+                    <span>#{{id}}</span>
+                </header>
+                <div>
+                    <p><h4>Location: {{location}}</h4></p>
+                    <p>Birthday: {{birthday}}</p>
+                    <p>Friends: {{friends}}
+                    </p><!-- SHOULD Requirement -->
+                </div>
+            </section>
+        {{/each}}
+    </script>
+
+    <main class="user-grid" id="grid-content">
+    </main>
+</body>
+</html>

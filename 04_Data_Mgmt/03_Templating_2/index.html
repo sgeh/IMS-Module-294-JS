@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+<body>
+    <script id="result-template" type="text/x-handlebars-template">
+        <output>{{ res }}</output>
+    </script>
+     
+    <div>
+        <input type="number" id="left"> + <input type="number" id="right"> = <span id="result-container"></span> <input type="button" onclick="calculate()" value="Calculate">
+    </div>
+    <h1 id="heading1"></h1>
+
+<script defer>
+const resultTemplate = document.querySelector("#result-template");
+const compiledTemplate = Handlebars.compile(resultTemplate.innerHTML);
+const resultContainer = document.querySelector("#result-container");
+
+function calculate() {
+    const leftInput = document.querySelector("#left");
+    const rightInput = document.querySelector("#right");
+
+    const result = { res: leftInput.valueAsNumber + rightInput.valueAsNumber };
+    resultContainer.innerHTML = compiledTemplate(result);
+}
+
+</script>
+
+</body>
+</html>

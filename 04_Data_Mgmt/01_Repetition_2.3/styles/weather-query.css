@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.weather-table {
+    margin: 2rem;
+    padding: 2rem;
+
+    border-collapse: separate;
+    border-spacing: 8px;
+    background-color: #fdfdfd;
+    box-shadow: 1px 1px 2px darkgray;
+    border-radius: 4px;
+}
+
+.weather-table th {
+    text-align: left;
+    padding: 5px;
+}
+
+.weather-table td {
+    text-align: right;
+    padding: 5px;
+}
+
+.weather-table tbody tr:nth-child(odd) {
+    background-color: #eaffde;
+}
+
+.weather-table tbody td:first-child {
+    text-align: center;
+}

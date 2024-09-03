@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script src="./scripts/list.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+<body>
+    <script id="list-template" type="text/x-handlebars-template">
+        <ul>
+            {{#each list}}
+                <li>{{id}}: {{name}}, {{place}}</li>
+            {{/each}}
+        </ul>
+    </script>
+     
+    <div id="list-container"></div>
+</body>
+</html>

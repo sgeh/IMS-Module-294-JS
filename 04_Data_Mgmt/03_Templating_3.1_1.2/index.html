@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script src="./scripts/table.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+</head>
+<body>
+    <script id="row-template" type="text/x-handlebars-template">
+        {{#each list}}
+            <tr>
+                <th scope="row">{{ id }}</th>
+                <td>{{ name }}</td>
+                <td>{{ place }}</td>
+            </tr>
+        {{/each}}
+    </script>
+
+    <table>
+        <thead>
+            <tr scope="row">
+                <th scope="col">No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Place</th>
+            </tr>
+        </thead>
+        <tbody id="table-content">
+        </tbody>
+    </table>
+</body>
+</html>
