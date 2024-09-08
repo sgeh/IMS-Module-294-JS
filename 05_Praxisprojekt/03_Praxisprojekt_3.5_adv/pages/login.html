@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script src="../scripts/notes-api.js"></script>
+    <script src="../scripts/users-api.js"></script>
+    <script src="../scripts/views/login.js" defer></script>
+    <title>Notes App - Login</title>
+</head>
+<body class="main-content">
+    <header>
+        <div class="account-menu-container">
+            <h1>ToDo's</h1>
+            <ul class="account-menu">
+                <li><a href="./register.html">Register</a></li>
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <h2 class="left-nav">Login</h2>
+    </nav>
+    <main>
+        <form class="view">
+            <label>
+                <span>E-Mail: </span>
+                <input type="email" id="login-email" required>
+            </label>
+            <label>
+                <span>Password: </span>
+                <input type="password" id="login-password" required>
+            </label>
+            <button type="submit">Login</button>
+            <div id="login-error"></div>
+        </form>
+    </main>
+    <footer>Copyright &copy; 2023</footer> 
+</body>
+</html>

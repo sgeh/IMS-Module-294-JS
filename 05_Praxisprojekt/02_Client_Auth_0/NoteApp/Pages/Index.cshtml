@@ -1,0 +1,272 @@
+﻿@page
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>NoteApp API Server</title>
+</head>
+<body>
+    <header><h1>API Definition</h1></header>
+    <section>
+        <header>
+            <h2>Users API <code>/api/users</code></h2>
+        </header>
+        <p>To use the note API, call <c>/api/users</c> with method POST.</p>
+        <hr>
+        <article>
+            <header>
+                <h4>Method: POST <c>api/users/login</c></h4>
+            </header>
+            <p>Authenticates an existing user by using the given email and password.</p>
+            <p>Example:</p>
+            <code>
+                <pre>
+async function login() {
+    const response = await fetch('http://localhost:4200/api/users/login', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        cache: 'no-cache',
+        method: 'POST',
+        body: JSON.stringify({ 'email': 'admin@example.com', 'password': 'user1234' })
+    });
+    const data = await response.json();
+    console.log(data);
+}
+                </pre>
+            </code>
+            <p>Returns the token information containing the JWT token:</p>
+            <code>
+                <pre>
+{
+    "email": "admin@example.com",
+    "jwt": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiIwMTNjMzJmYi0xNDRkLTRkNmEtODllYi0wOGFjODgyNmI3MmMiLCJuYmYiOjE2OTQ0NTEyMzIsImV4cCI6MTY5NDg4MzIzMiwiaWF0IjoxNjk0NDUxMjMyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.QUXk2MkmBTiJpIpZkrzuic4g_hTwBpw-U9XBVWy0m566-3KPVyCHulvaXJ-7bWRUNA696wHMAQYbfTYuOxmkkw",
+    "expiresAt": "2023-09-16T16:53:52.3024719Z"
+}
+                </pre>
+            </code>
+        </article>
+        <hr>
+        <article>
+            <header>
+                <h4>Method: POST <c>api/users/register</c></h4>
+            </header>
+            <p>Registers a new user in the system.</p>
+            <p>Example:</p>
+            <code>
+                <pre>
+async function register() {
+    const response = await fetch('http://localhost:4200/api/users/register', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        cache: 'no-cache',
+        method: 'POST',
+        body: JSON.stringify({ 'email': 'new-user@example.com', 'password': 'user1234' })
+    });
+    const data = await response.json();
+    console.log(data);
+}
+                </pre>
+            </code>
+            <p>Returns the token information containing the JWT token:</p>
+            <code>
+                <pre>
+{
+    "email": "new-user@example.com",
+    "jwt": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJzdWIiOiJuZXctdXNlckBleGFtcGxlLmNvbSIsImVtYWlsIjoibmV3LXVzZXJAZXhhbXBsZS5jb20iLCJqdGkiOiIwZmViOTk1YS0zMjRkLTQxYzQtOWE2Ni00NjBhMzFiYjMzOWUiLCJuYmYiOjE2OTQ0NTEzNDMsImV4cCI6MTY5NDg4MzM0MywiaWF0IjoxNjk0NDUxMzQzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.ShtF4pH3C-Q3pYUUFUHgkIxoOqLLMeq8Zh1DvBn5YbE6XPD8F5HwoTRhGUPFDtJmv4enZDPKbkFEcR8Wah9TTQ",
+    "expiresAt": "2023-09-16T16:55:43.0590463Z"
+}
+                </pre>
+            </code>
+        </article>
+    </section>
+    <hr>
+    <section>
+        <header>
+            <h2>Notes API <code>/api/notes</code></h2>
+        </header>
+        <p>To use the note API, call <c>/api/notes</c> with method POST, GET, DELETE, PUT.</p>
+        <hr>
+        <article>
+            <header>
+                <h4>Method: GET <c>api/notes</c></h4>
+            </header>
+            <p>Returns all notes in the database.</p>
+            <p>Example:</p>
+            <code>
+                <pre>
+async function getNotes() {
+    const request = await fetch('http://localhost:4200/api/notes/', {
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiJiYjMwNTI2YS0wMjg1LTQ2YjYtODcwMS1mNGJlNTE3YTg3ZGIiLCJuYmYiOjE2OTQyODg5NDgsImV4cCI6MTY5NDcyMDk0OCwiaWF0IjoxNjk0Mjg4OTQ4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.KoRJgsfotkMSK_9XrsnlwUisr61z1KbnMjfHCSAVvjJtOoGtsc5JnwVnArRQSWk9SbaQYUZXki7NMRuaVKOW8Q'
+        },
+        method: 'GET'
+    });
+    const data = await request.json();
+    console.log(data);
+}
+                </pre>
+            </code>
+            <p>Returns:</p>
+            <code>
+                <pre>
+[
+    {
+        "id": 1,
+        "name": "Note1",
+        "description": "Admin Note 1",
+        "dueDate": "2023-09-13T21:24:53.3487137",
+        "completionDate": "2023-09-11T21:24:53.3487137"
+    },
+    {
+        "id": 2,
+        "name": "name",
+        "description": null,
+        "dueDate": null,
+        "completionDate": null
+    },
+    {
+        "id": 3,
+        "name": "Note1",
+        "description": "Admin Note 3",
+        "dueDate": "2023-09-14T21:24:53.3487137",
+        "completionDate": null
+    }
+]
+                </pre>
+            </code>
+        </article>
+        <hr>
+        <article>
+            <header>
+                <h4>Method: GET <c>api/notes/[id]</c></h4>
+                <h5>where [id]: ID of the note to retrieve.</h5>
+            </header>
+            <p>Returns the note associated to the given id.</p>
+            <p>Example:</p>
+            <code>
+                <pre>
+async function getNote() {
+    const request = await fetch('http://localhost:4200/api/notes/1', {
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiJiYjMwNTI2YS0wMjg1LTQ2YjYtODcwMS1mNGJlNTE3YTg3ZGIiLCJuYmYiOjE2OTQyODg5NDgsImV4cCI6MTY5NDcyMDk0OCwiaWF0IjoxNjk0Mjg4OTQ4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.KoRJgsfotkMSK_9XrsnlwUisr61z1KbnMjfHCSAVvjJtOoGtsc5JnwVnArRQSWk9SbaQYUZXki7NMRuaVKOW8Q'
+        },
+        method: 'GET'
+    });
+    const data = await request.json();
+    console.log(data);
+}
+                </pre>
+            </code>
+            <p>Returns:</p>
+            <code>
+                <pre>
+{
+    "id": 1,
+    "name": "Note1",
+    "description": "Admin Note 1",
+    "dueDate": "2023-09-13T21:06:29.9249806",
+    "completionDate": "2023-09-11T21:06:29.9249806"
+}
+                </pre>
+            </code>
+        </article>
+        <hr>
+        <article>
+            <header>
+                <h4>Method: POST <c>api/notes</c></h4>
+            </header>
+            <p>Stores a new note into the database.</p>
+            <p>Example:</p>
+            <code>
+                <pre>
+async function addNote() {
+    const request = await fetch('http://localhost:4200/api/notes/', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiJiYjMwNTI2YS0wMjg1LTQ2YjYtODcwMS1mNGJlNTE3YTg3ZGIiLCJuYmYiOjE2OTQyODg5NDgsImV4cCI6MTY5NDcyMDk0OCwiaWF0IjoxNjk0Mjg4OTQ4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.KoRJgsfotkMSK_9XrsnlwUisr61z1KbnMjfHCSAVvjJtOoGtsc5JnwVnArRQSWk9SbaQYUZXki7NMRuaVKOW8Q'
+        },
+        method: 'POST',
+        body: JSON.stringify({ name: 'new', description: 'new todo', dueDate: '2023-08-19T18:31:35.294Z', completionDate: '2023-08-19T18:31:35.294Z' }),
+    });
+    const data = await request.json();
+    console.log(data);
+}
+                </pre>
+            </code>
+            <p>Returns:</p>
+            <code>
+                <pre>
+{
+    "id": 4,
+    "name": "new",
+    "description": "new todo",
+    "dueDate": "2023-08-19T18:31:35.294Z",
+    "completionDate": "2023-08-19T18:31:35.294Z"
+}
+                </pre>
+            </code>
+        </article>
+        <hr>
+        <article>
+            <header>
+                <h4>Method: PUT <c>api/notes/[id]</c></h4>
+                <h5>where [id]: ID of the note to be edited.</h5>
+            </header>
+            <p>Updates an existing note in the database.</p>
+            <p>Example:</p>
+            <code>
+                <pre>
+async function updateNote() {
+    const request = await fetch('http://localhost:4200/api/notes/1', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiJiYjMwNTI2YS0wMjg1LTQ2YjYtODcwMS1mNGJlNTE3YTg3ZGIiLCJuYmYiOjE2OTQyODg5NDgsImV4cCI6MTY5NDcyMDk0OCwiaWF0IjoxNjk0Mjg4OTQ4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.KoRJgsfotkMSK_9XrsnlwUisr61z1KbnMjfHCSAVvjJtOoGtsc5JnwVnArRQSWk9SbaQYUZXki7NMRuaVKOW8Q'
+        },
+        method: 'PUT',
+        body: JSON.stringify({ id: 1, name: 'overwrite', description: 'overwrite todo', dueDate: '2023-08-20T18:31:35.294Z', completionDate: '2023-08-20T18:31:35.294Z' }),
+    });
+    const data = request.status;
+    console.log(data);
+}
+                </pre>
+            </code>
+            <p>Returns the HTTP status code: HTTP Code 204</p>
+        </article>
+        <hr>
+        <article>
+            <header>
+                <h4>Method: DELETE <c>api/notes/[id]</c></h4>
+                <h5>where [id]: ID of the note to be deleted.</h5>
+            </header>
+            <p>Removes an existing note from the database.</p>
+            <p>Example:</p>
+            <code>
+                <pre>
+async function deleteNote() {
+    const request = await fetch('http://localhost:4200/api/notes/1', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiJiYjMwNTI2YS0wMjg1LTQ2YjYtODcwMS1mNGJlNTE3YTg3ZGIiLCJuYmYiOjE2OTQyODg5NDgsImV4cCI6MTY5NDcyMDk0OCwiaWF0IjoxNjk0Mjg4OTQ4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.KoRJgsfotkMSK_9XrsnlwUisr61z1KbnMjfHCSAVvjJtOoGtsc5JnwVnArRQSWk9SbaQYUZXki7NMRuaVKOW8Q'
+        },
+        method: 'DELETE'
+    });
+    const data = request.status;
+    console.log(data);
+}
+                </pre>
+            </code>
+            <p>Returns the HTTP status code: HTTP Code 204</p>
+        </article>
+    </section>
+</body>
+</html>
+
