@@ -1,4 +1,7 @@
 ﻿@page
+@{
+    var yearWithMonth = DateTime.Now.ToString("yyyy-MM");
+}
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -42,7 +45,7 @@ async function login() {
 {
     "email": "admin@example.com",
     "jwt": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiIwMTNjMzJmYi0xNDRkLTRkNmEtODllYi0wOGFjODgyNmI3MmMiLCJuYmYiOjE2OTQ0NTEyMzIsImV4cCI6MTY5NDg4MzIzMiwiaWF0IjoxNjk0NDUxMjMyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.QUXk2MkmBTiJpIpZkrzuic4g_hTwBpw-U9XBVWy0m566-3KPVyCHulvaXJ-7bWRUNA696wHMAQYbfTYuOxmkkw",
-    "expiresAt": "2023-09-16T16:53:52.3024719Z"
+    "expiresAt": "@yearWithMonth-16T16:53:52.3024719Z"
 }
                 </pre>
             </code>
@@ -77,7 +80,7 @@ async function register() {
 {
     "email": "new-user@example.com",
     "jwt": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJzdWIiOiJuZXctdXNlckBleGFtcGxlLmNvbSIsImVtYWlsIjoibmV3LXVzZXJAZXhhbXBsZS5jb20iLCJqdGkiOiIwZmViOTk1YS0zMjRkLTQxYzQtOWE2Ni00NjBhMzFiYjMzOWUiLCJuYmYiOjE2OTQ0NTEzNDMsImV4cCI6MTY5NDg4MzM0MywiaWF0IjoxNjk0NDUxMzQzLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.ShtF4pH3C-Q3pYUUFUHgkIxoOqLLMeq8Zh1DvBn5YbE6XPD8F5HwoTRhGUPFDtJmv4enZDPKbkFEcR8Wah9TTQ",
-    "expiresAt": "2023-09-16T16:55:43.0590463Z"
+    "expiresAt": "@yearWithMonth-16T16:55:43.0590463Z"
 }
                 </pre>
             </code>
@@ -119,8 +122,8 @@ async function getNotes() {
         "id": 1,
         "name": "Note1",
         "description": "Admin Note 1",
-        "dueDate": "2023-09-13T21:24:53.3487137",
-        "completionDate": "2023-09-11T21:24:53.3487137"
+        "dueDate": "@yearWithMonth-13T21:24:53.3487137",
+        "completionDate": "@yearWithMonth-11T21:24:53.3487137"
     },
     {
         "id": 2,
@@ -133,7 +136,7 @@ async function getNotes() {
         "id": 3,
         "name": "Note1",
         "description": "Admin Note 3",
-        "dueDate": "2023-09-14T21:24:53.3487137",
+        "dueDate": "@yearWithMonth-14T21:24:53.3487137",
         "completionDate": null
     }
 ]
@@ -170,8 +173,8 @@ async function getNote() {
     "id": 1,
     "name": "Note1",
     "description": "Admin Note 1",
-    "dueDate": "2023-09-13T21:06:29.9249806",
-    "completionDate": "2023-09-11T21:06:29.9249806"
+    "dueDate": "@yearWithMonth-13T21:06:29.9249806",
+    "completionDate": "@yearWithMonth-11T21:06:29.9249806"
 }
                 </pre>
             </code>
@@ -193,7 +196,7 @@ async function addNote() {
             'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiJiYjMwNTI2YS0wMjg1LTQ2YjYtODcwMS1mNGJlNTE3YTg3ZGIiLCJuYmYiOjE2OTQyODg5NDgsImV4cCI6MTY5NDcyMDk0OCwiaWF0IjoxNjk0Mjg4OTQ4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.KoRJgsfotkMSK_9XrsnlwUisr61z1KbnMjfHCSAVvjJtOoGtsc5JnwVnArRQSWk9SbaQYUZXki7NMRuaVKOW8Q'
         },
         method: 'POST',
-        body: JSON.stringify({ name: 'new', description: 'new todo', dueDate: '2023-08-19T18:31:35.294Z', completionDate: '2023-08-19T18:31:35.294Z' }),
+        body: JSON.stringify({ name: 'new', description: 'new todo', dueDate: '2024-08-19T18:31:35.294Z', completionDate: '2024-08-19T18:31:35.294Z' }),
     });
     const data = await request.json();
     console.log(data);
@@ -207,8 +210,8 @@ async function addNote() {
     "id": 4,
     "name": "new",
     "description": "new todo",
-    "dueDate": "2023-08-19T18:31:35.294Z",
-    "completionDate": "2023-08-19T18:31:35.294Z"
+    "dueDate": "@yearWithMonth-19T18:31:35.294Z",
+    "completionDate": "@yearWithMonth-19T18:31:35.294Z"
 }
                 </pre>
             </code>
@@ -231,7 +234,7 @@ async function updateNote() {
             'Authorization': 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsImVtYWlsIjoiYWRtaW5AZXhhbXBsZS5jb20iLCJqdGkiOiJiYjMwNTI2YS0wMjg1LTQ2YjYtODcwMS1mNGJlNTE3YTg3ZGIiLCJuYmYiOjE2OTQyODg5NDgsImV4cCI6MTY5NDcyMDk0OCwiaWF0IjoxNjk0Mjg4OTQ4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0IiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdCJ9.KoRJgsfotkMSK_9XrsnlwUisr61z1KbnMjfHCSAVvjJtOoGtsc5JnwVnArRQSWk9SbaQYUZXki7NMRuaVKOW8Q'
         },
         method: 'PUT',
-        body: JSON.stringify({ id: 1, name: 'overwrite', description: 'overwrite todo', dueDate: '2023-08-20T18:31:35.294Z', completionDate: '2023-08-20T18:31:35.294Z' }),
+        body: JSON.stringify({ id: 1, name: 'overwrite', description: 'overwrite todo', dueDate: '@yearWithMonth-20T18:31:35.294Z', completionDate: '@yearWithMonth-05T18:31:35.294Z' }),
     });
     const data = request.status;
     console.log(data);
