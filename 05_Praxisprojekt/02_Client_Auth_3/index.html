@@ -7,8 +7,7 @@
 </head>
 <body>
     <script>
-async function getNotes() {
-    const token = localStorage.getItem('jwtToken');
+async function getNotes(token) {
     const request = await fetch('http://localhost:4200/api/notes/', {
         headers: {
             'Accept': 'application/json',
@@ -32,12 +31,19 @@ async function login() {
     });
     const data = await response.json();
     console.log(data);
-    
-    localStorage.setItem('jwtToken', data.jwt)
-    await getNotes();
+    return data.jwt;
 }
-login();
 
+async function loadData() { // optional d)
+    let token = localStorage.getItem('jwtToken');
+    if (!token) {
+        token = await login();
+        localStorage.setItem('jwtToken', token)
+    }
+    getNotes(token);
+}
+
+loadData();
     </script>
 </body>
 </html>
