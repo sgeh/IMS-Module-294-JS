@@ -73,7 +73,7 @@ async function addNote(token, note) {
  * @returns {Promise<Note>} Returns the HTTP status code.
  */
 async function updateNote(token, note) {
-    const request = await fetch(`${environment.apiRoot}/api/notes/${token.id}`, {
+    const request = await fetch(`${environment.apiRoot}/api/notes/${note.id}`, {
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
