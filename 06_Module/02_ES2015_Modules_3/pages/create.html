@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="module" src="../scripts/views/create.js"></script>
+    <title>Notes App - Create New Note</title>
+</head>
+<body class="main-content">
+    <header>
+        <div class="account-menu-container">
+            <h1>ToDo's</h1>
+            <ul class="account-menu">
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <h2 class="left-nav">Create Note</h2>
+    </nav>
+    <main>
+        <form class="view">
+            <header>
+                <label>
+                    <span>Name: </span>
+                    <input type="text" id="edit-name" value="" required>
+                </label>
+            </header>
+            <section>
+                <label>
+                    <span>Description: </span>
+                    <input type="text" id="edit-description" value="">
+                </label>
+                <label>
+                    <span>Due Date: </span>
+                    <input type="date" id="edit-dueDate" value="">
+                </label>
+                <button>Speichern</button>
+            </section>
+        </form>
+    </main>
+    <footer>Copyright &copy; 2023</footer> 
+</body>
+</html>
